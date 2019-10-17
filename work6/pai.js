@@ -8,14 +8,14 @@ function calculate(){
 function factorial(n){
     let sum = 1
     for(let i=1;i<=n;++i){
-        sum
+        sum*=i
     }
     return sum 
 }
 function oddFactorial(n){
     let sum = 1
     for(let i=1;i<=n;++i){
-        sum*=i     
+        sum*=2*i+1    
     }
     return sum 
 }
