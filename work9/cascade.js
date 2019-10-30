@@ -1,9 +1,4 @@
-<select id="collegeSelect">
-    <option value="-1">请选择</option>
-</select>
-<select id="majorSelect"></select>
-<select id="classSelect"></select>
-<script>
+
 let colleges = ['电子与通信学院', '先进制造学院', '电气技术学院', '汽车学院', '计算机与设计学院', '外语商务学院', '经济贸易学院', '物流学院', '马克思主义学院']
 let majors = [
     ['电子', '电信', '通信', '嵌入', '物联'],
@@ -79,12 +74,29 @@ let classes = [
         ['社工1801']
     ]
 ];
-</script>
 function createOption(obj, data) {
         for (var i in data) {
         var op = new Option(data[i],i);
         obj.options.add(op);    
         }
     }
-    var collegeSelect = document.getElementById('collegeSelect');
-    createOption(collegeSelect, collegeSelectArr);
+   
+    
+    colleges.onchange = function(){
+        majors.options.length = 0;
+        createOption(majors, majorsArr[colleges.value]);
+    
+    if (colleges.value >= 0) {
+        majors.onchange();
+    } else {
+        classes.options.length = 0;
+    };
+    };
+   
+    majors.onchange = function(){
+        classes.options.length = 0;
+        createOption(classes, classesArr[majors.value][majors.value]);
+    };
+   
+
+    
