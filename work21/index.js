@@ -13,7 +13,7 @@ $(function () {
     $('.banner').hover(function () {
         clearInterval(timer);
     }, function () {
-        timer = setInterval(imggChange, delay);
+        timer = setInterval(imgChange, delay);
     });
 
     $('.dot li').mouseover(function () {
